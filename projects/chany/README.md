@@ -1,2 +1,1 @@
-This is my assignment-1 submission!
-Yau Chan, chany
+This is my assignment-2 submission!
