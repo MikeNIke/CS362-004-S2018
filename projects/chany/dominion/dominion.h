@@ -135,7 +135,7 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 int adventurerC(struct gameState *state);
 int smithyC(struct gameState *state, int handPos);
 int sea_hagC(struct gameState *state);
-int embargoC(struct gameState *state, int handPos);
+int embargoC(int choice1, struct gameState *state, int handPos);
 int stewardC(int choice1, int choice2, int choice3, struct gameState *state, int handPos);
 
 #endif

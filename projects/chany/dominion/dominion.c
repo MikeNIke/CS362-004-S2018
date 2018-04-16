@@ -655,9 +655,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
-  int cardDrawn;
-  int z = 0;// this is the counter for the temp hand
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
@@ -811,7 +808,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case smithy:
-      return smithyC(state);
+      return smithyC(state, handPos);
 		
     case village:
       //+1 Card
@@ -1093,7 +1090,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 		
     case embargo: 
-      return embargoC(state, handPos);
+      return embargoC(choice1, state, handPos);
 		
     case outpost:
       //set outpost flag
@@ -1264,19 +1261,28 @@ int updateCoins(int player, struct gameState *state, int bonus)
 ////////////////////////////////////////////
 //Refactored Card Functions - Assignment 2//
 ////////////////////////////////////////////
+
 int adventurerC(struct gameState *state) {
+    int z;
+    int currentPlayer = whoseTurn(state);
+    int temphand[MAX_HAND];// moved above the if statement
+    int drawntreasure=0;
+    int cardDrawn;
+
     while(drawntreasure<2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
-	  shuffle(currentPlayer, state);
+	    shuffle(currentPlayer, state);
+	    drawCard(currentPlayer, state); //bug1
 	}
-	drawCard(currentPlayer, state);
+	//drawCard(currentPlayer, state);   //bug1
 	cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-	if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+	//if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+	if (cardDrawn == copper || cardDrawn == silver) //bug1.2
 	  drawntreasure++;
 	else{
 	  temphand[z]=cardDrawn;
 	  state->handCount[currentPlayer]--; //this should just remove the top card (the most recently drawn one).
-	  z++;
+	  z++; 
 	}
       }
       while(z-1>=0){
@@ -1288,8 +1294,12 @@ int adventurerC(struct gameState *state) {
 }
 
 int smithyC(struct gameState *state, int handPos) {
+    int i;
+    int currentPlayer = whoseTurn(state);
+
     //+3 Cards
-    for (i = 0; i < 3; i++) {
+    //for (i = 0; i < 3; i++) {
+    for (i = 0; i <= 3; i++) {   //bug2
 	  drawCard(currentPlayer, state);
 	}
 			
@@ -1299,6 +1309,9 @@ int smithyC(struct gameState *state, int handPos) {
 }
 
 int sea_hagC(struct gameState *state) {
+    int i;
+    int currentPlayer = whoseTurn(state);
+
     for (i = 0; i < state->numPlayers; i++){
 	    if (i != currentPlayer){
 	        state->discard[i][state->discardCount[i]] = state->deck[i][state->deckCount[i]--];
@@ -1310,12 +1323,15 @@ int sea_hagC(struct gameState *state) {
     return 0;
 }
     
-int embargoC(struct gameState *state, int handPos) {
+int embargoC(int choice1, struct gameState *state, int handPos) {
+    int currentPlayer = whoseTurn(state);
+
       //+2 Coins
       state->coins = state->coins + 2;
 			
       //see if selected pile is in play
-      if ( state->supplyCount[choice1] == -1 )
+      //if ( state->supplyCount[choice1] == -1 )
+      if ( state->supplyCount[choice1] >= -1 )  //bug3
 	{
 	  return -1;
 	}
@@ -1329,13 +1345,15 @@ int embargoC(struct gameState *state, int handPos) {
 }
 
 int stewardC(int choice1, int choice2, int choice3, struct gameState *state, int handPos) {
+    int currentPlayer = whoseTurn(state);
       if (choice1 == 1)
 	{
 	  //+2 cards
 	  drawCard(currentPlayer, state);
 	  drawCard(currentPlayer, state);
 	}
-      else if (choice1 == 2)
+      //else if (choice1 == 2)
+      else if (choice1 != 2)    //bug4
 	{
 	  //+2 coins
 	  state->coins = state->coins + 2;
