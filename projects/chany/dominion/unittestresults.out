@@ -1,0 +1,191 @@
+unittest1.c:
+TESTING handCard():
+	Testing every card in a hand of 5.
+	Index = 0:
+TEST PASSED: Expected == Actual 
+	Index = 1:
+TEST PASSED: Expected == Actual 
+	Index = 2:
+TEST PASSED: Expected == Actual 
+	Index = 3:
+TEST PASSED: Expected == Actual 
+	Index = 4:
+TEST PASSED: Expected == Actual 
+	Index 5 (out of bounds):
+TEST PASSED: Expected != Actual 
+
+All tests passed!
+File 'dominion.c'
+Lines executed:16.67% of 564
+Creating 'dominion.c.gcov'
+
+unittest2.c:
+TESTING shuffle():
+	Player deck count is 0
+TEST PASSED: Expected == Actual 
+	Player deck count is 8 before and after shuffle
+TEST PASSED: Expected == Actual 
+	Cards are shuffled
+TEST PASSED: Expected == Actual 
+
+All tests passed!
+File 'dominion.c'
+Lines executed:16.13% of 564
+Creating 'dominion.c.gcov'
+
+unittest3.c:
+TESTING shuffle():
+	Province cards empty:
+TEST PASSED: Expected == Actual 
+	Three supply piles are empty:
+TEST PASSED: Expected == Actual 
+	Both Province cards and supply piles are not empty:
+TEST PASSED: Expected == Actual 
+
+All tests passed!
+File 'dominion.c'
+Lines executed:17.55% of 564
+Creating 'dominion.c.gcov'
+
+unittest4.c:
+TESTING buyCard() with Gold Card:
+	No buys left:
+TEST PASSED: Expected == Actual 
+	No coins left:
+TEST PASSED: Expected == Actual 
+	Card supply out:
+TEST PASSED: Expected == Actual 
+	Successful purchase:
+TEST PASSED: Expected == Actual 
+
+All tests passed!
+File 'dominion.c'
+Lines executed:20.39% of 564
+Creating 'dominion.c.gcov'
+
+cardtest1.c:
+TESTING adventurerC():
+	Player0 gains 2 cards:
+TEST FAILED: Expected == 7, Actual == 5 
+	Player 0 gains 2 treasure cards:
+TEST FAILED: Expected == 4, Actual == 6 
+	No change to victory card piles:
+	Province Pile
+TEST PASSED: Expected == Actual 
+	Duchy Pile
+TEST PASSED: Expected == Actual 
+	Estate Pile
+TEST PASSED: Expected == Actual 
+	No change to kingdom card piles:
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Checking card piles...
+TEST PASSED: Expected == Actual 
+	Player1 was not affected:
+	Hand Count
+TEST PASSED: Expected == Actual 
+	Deck Count
+TEST PASSED: Expected == Actual 
+
+Failure - Not all test passed!
+File 'dominion.c'
+Lines executed:19.33% of 564
+Creating 'dominion.c.gcov'
+
+cardtest2.c:
+TESTING smithyC():
+	Player0 gains 3 cards:
+TEST FAILED: Expected == 7, Actual == 8 
+	Player0 gains 3 cards from his own pile:
+TEST FAILED: Expected == 2, Actual == 1 
+	No change to victory card piles:
+	Province Pile
+TEST PASSED: Expected == Actual 
+	Duchy Pile
+TEST PASSED: Expected == Actual 
+	Estate Pile
+TEST PASSED: Expected == Actual 
+	No change to kingdom card piles:
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	checking card piles...
+TEST PASSED: Expected == Actual 
+	Player1 was not affected:
+	Hand Count
+TEST PASSED: Expected == Actual 
+	Deck Count
+TEST PASSED: Expected == Actual 
+
+Failure - Not all test passed!
+File 'dominion.c'
+Lines executed:20.39% of 564
+Creating 'dominion.c.gcov'
+
+cardtest3.c:
+TESTING stewardC():
+	Player0 gains 2 cards:
+TEST PASSED: Expected == Actual 
+	Player0 gains 2 coins:
+TEST FAILED: Expected == 7, Actual == 5 
+	Player0 discards 2 cards:
+TEST FAILED: Expected == 2, Actual == 0 
+
+Failure - Not all test passed!
+File 'dominion.c'
+Lines executed:21.63% of 564
+Creating 'dominion.c.gcov'
+
+cardtest4.c:
+TESTING embargoC():
+	Selected pile is not in play:
+	Player0 gains 2 coins:
+TEST PASSED: Expected == Actual 
+	Player0 adds embargo token to supply pile:
+TEST FAILED: Expected == 2, Actual == 0 
+	Player0 discards card after:
+TEST FAILED: Expected == 1, Actual == 0 
+	Selected pile is in play:
+	Player0 gains 2 coins:
+TEST PASSED: Expected == Actual 
+	Player0 adds embargo token to supply pile:
+TEST PASSED: Expected == Actual 
+	Player0 discards card after:
+TEST PASSED: Expected == Actual 
+
+Failure - Not all test passed!
+File 'dominion.c'
+Lines executed:18.26% of 564
+Creating 'dominion.c.gcov'
+
