@@ -40,7 +40,7 @@ int main() {
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
 
-    printf ("TESTING shuffle():\n");
+    printf ("TESTING isGameOver():\n");
   
     memset(&G, 23, sizeof(struct gameState));
     initializeGame(numPlayer, k, seed, &G);
