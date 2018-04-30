@@ -1263,7 +1263,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 ////////////////////////////////////////////
 
 int adventurerC(struct gameState *state) {
-    int z;
+    int z=0;
     int currentPlayer = whoseTurn(state);
     int temphand[MAX_HAND];// moved above the if statement
     int drawntreasure=0;
@@ -1272,12 +1272,12 @@ int adventurerC(struct gameState *state) {
     while(drawntreasure<2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
 	    shuffle(currentPlayer, state);
-	    drawCard(currentPlayer, state); //bug1
+	    //drawCard(currentPlayer, state); //bug1
 	}
-	//drawCard(currentPlayer, state);   //bug1
+	drawCard(currentPlayer, state);   //bug1
 	cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
-	//if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
-	if (cardDrawn == copper || cardDrawn == silver) //bug1.2
+	if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+	//if (cardDrawn == copper || cardDrawn == silver) //bug1.2
 	  drawntreasure++;
 	else{
 	  temphand[z]=cardDrawn;
