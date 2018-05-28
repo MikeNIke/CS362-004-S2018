@@ -64,10 +64,10 @@ int main() {
     assertTrue(G.coins, 7, &err_cnt);
     
     printf("\tPlayer0 adds embargo token to supply pile:\n");
-    assertTrue(G.embargoTokens[choice1], embCoins+2, &err_cnt);
+    assertTrue(G.embargoTokens[choice1], embCoins+1, &err_cnt);
 
     printf("\tPlayer0 discards card after:\n");
-    assertTrue(G.discardCount[0], discardNum+1, &err_cnt);
+    assertTrue(G.discardCount[0], discardNum, &err_cnt);
 
     printf("\tSelected pile is in play:\n");
     G.coins = 5;
@@ -78,7 +78,7 @@ int main() {
     printf("\tPlayer0 gains 2 coins:\n");
     assertTrue(G.coins, 7, &err_cnt);
     printf("\tPlayer0 adds embargo token to supply pile:\n");
-    assertTrue(G.embargoTokens[choice1], embCoins, &err_cnt);
+    assertTrue(G.embargoTokens[choice1], embCoins+1, &err_cnt);
     printf("\tPlayer0 discards card after:\n");
     assertTrue(G.discardCount[0], discardNum, &err_cnt);
 
