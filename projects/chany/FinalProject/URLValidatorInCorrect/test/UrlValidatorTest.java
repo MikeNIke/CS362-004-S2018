@@ -1,10 +1,12 @@
 
+// ******************************************************************
+// Group: Yau Chan (chany), Dat Pham (phamdat), Tanya Haddad (haddadt)
+// Due Date: June 11th, 2018
+// CS362: Final Project Part B
+// ******************************************************************
+
 
 import junit.framework.TestCase;
-
-//You can use this as a skeleton for your 3 different test approach
-//It is an optional to use this file, you can generate your own test file(s) to test the target function!
-// Again, it is up to you to use this file or not!
 
 
 public class UrlValidatorTest extends TestCase {
@@ -36,22 +38,13 @@ public class UrlValidatorTest extends TestCase {
    }*/
    
    
-   public void testYourFirstPartition()
-   {
-	 //You can use this function to implement your First Partition testing	   
 
-   }
-   
-   public void testYourSecondPartition(){
-		 //You can use this function to implement your Second Partition testing	   
-
-   }
    //You need to create more test cases for your Partitions if you need to 
    
    //public void testIsValid(Object[] testObjects, long allowAllSchemes, int urlTotal)
    public void testIsValid(String[] url, long allowAllSchemes, int urlTotal)
    {
-	   //You can use this function for programming based testing
+	   // Function for programming based testing
 	   UrlValidator urlVal = new UrlValidator(null, null, allowAllSchemes);
 	   boolean val;
 	   int err_cnt = 0;
@@ -70,6 +63,8 @@ public class UrlValidatorTest extends TestCase {
 	   System.out.println("Total failed: "+err_cnt);
    }
    
+	// Testing URL Scheme Authority partition
+	
 	public void testUrlSchemeAuthority() {
 
 		System.out.println("\nRunning programming based testing for scheme+authority...");
@@ -98,8 +93,10 @@ public class UrlValidatorTest extends TestCase {
 		}
 	}
 	
-	// Loop though different different ports with the rest of the url being
-		// valid
+	
+	// Testing URL Ports partition
+	// Loops though different different ports with the rest of the url being valid
+	
 		public void testUrlPort() {
 
 			System.out.println("\nRunning programming based testing for port...");
@@ -123,7 +120,10 @@ public class UrlValidatorTest extends TestCase {
 			}
 		}
 
-		// Loop though different paths with the rest of the url being valid
+	
+	// Testing URL Path partition
+	// Loop though different paths with the rest of the url being valid
+	
 		public void testUrlPath() {
 
 			System.out.println("\nRunning programming based testing for path...");
@@ -147,7 +147,9 @@ public class UrlValidatorTest extends TestCase {
 			}
 		}
 
-		// Loop though different queries with the rest of the url being valid
+	// Testing URL queries partition
+	// Loop though different queries with the rest of the url being valid
+	
 		public void testUrlQuery() {
 
 			System.out.println("\nRunning programming based testing for query...");
@@ -171,6 +173,9 @@ public class UrlValidatorTest extends TestCase {
 			}
 		}
 
+	
+	// Input data for partition testing
+	
 		ResultPair[] testUrlScheme = { new ResultPair("http://", true), new ResultPair("https://", true),
 				new ResultPair("ftp://", true), new ResultPair("blah://", true), new ResultPair("://", false),
 				new ResultPair("/", false), new ResultPair(":", false), new ResultPair("123", false),
@@ -206,6 +211,4 @@ public class UrlValidatorTest extends TestCase {
 
 }
    
-
-
 }
