@@ -222,6 +222,7 @@ public class UrlValidatorTest extends TestCase {
 				new ResultPair("?key===value", true), new ResultPair("?key=?value", true),
 				new ResultPair("?key=??value", true) };
 	
+   //I thought the main function was needed, but apparently Eclipse includes the main function somewhere else.
    //public static void main(String[] argv) {
 
 	  //UrlValidatorTest fct = new UrlValidatorTest("url test");
