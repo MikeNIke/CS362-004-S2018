@@ -16,30 +16,53 @@ public class UrlValidatorTest extends TestCase {
       super(testName);
    }
 
-   
-/*   public void testManualTest()
+   // Manual tests (should be run separately from programming-based tests below)
+   public void testManualTest()
    {
-//You can use this function to implement your manual testing
-	   String[] urlArr = {	"http://www.google.com",
-			   				"http://www.google.com/",
-			   				"http://www.google.abc",
-			   				"https://www.google.com",
-			   				"http://www.google.com/",
-			   				//"abc://www.google.com/",
-			   				"www.google.net/",
-			   				"255.255.255.255",
-			   				//"go.com",
-			   				//"h3t://255.com:0",
-			   				//"ftp://255.com:80",
-			   				"http://www.microsoft.com/"};
+	   String[] urlArr = {	
+		// test some valid URLS 
+		"http://www.google.com/",			// Expected: PASS, Result: PASS
+		"http://www.google.abc",			// Expected: PASS, Result: PASS
+		"http://google.edu",				// Expected: PASS, Result: PASS
+		"http://www.google.edu?x=",			// Expected: PASS, Result: PASS
+		"http://www.google.com:65535",			// Expected: PASS, Result: FAIL
+		"http://www.google.com:6553",			// Expected: PASS, Result: FAIL
+			   			
+		// test empty and partial URLS
+		"",						// Expected: FAIL, Result: FAIL
+		"http://",					// Expected: FAIL, Result: PASS
+		"http://www",					// Expected: FAIL, Result: PASS
+		"http://www.google",				// Expected: FAIL, Result: PASS
+		"www.google.net/",				// Expected: PASS, Result: FAIL
+		"255.255.255.255",				// Expected: FAIL, Result: FAIL
+			   				
+		// test some invalid URLS
+		"http:/www.google.com",				// Expected: FAIL, Result: PASS
+		"http://www.goo/gle.com",			// Expected: FAIL, Result: PASS			   				
+		"http://www.goog?le.com",			// Expected: FAIL, Result: PASS
+		"http://www.goog;le.com",			// Expected: FAIL, Result: PASS
+		"http://www.google.com/:80",			// Expected: FAIL, Result: PASS
+			   				
+		// test triggering bug #2
+		"http://256.226.256.280",			// Expected: FAIL, Result: PASS
+		"http://aaaaa.bbbb.cccc",			// Expected: FAIL, Result: PASS
+			   				
+		// URLs below cause crashes
+			//"https://www.google.com",
+			//"abc://www.google.com/",
+			//"go.com",
+			//"h3t://255.com:0",
+			//"ftp://www.google.com",			
+			// "ftp://",							
+			//"ftp://255.com:80",
+			//"http://http://www.google.com",
+		};
 	   int urlTotal = urlArr.length;
 	   testIsValid(urlArr, UrlValidator.ALLOW_ALL_SCHEMES, urlTotal);
-	   //assertTrue(urlVal.isValid("http://www.google.com"));
-   }*/
+   }
    
    
-
-   //You need to create more test cases for your Partitions if you need to 
+   //Create more test cases for your Partitions if needed 
    
    //public void testIsValid(Object[] testObjects, long allowAllSchemes, int urlTotal)
    public void testIsValid(String[] url, long allowAllSchemes, int urlTotal)
